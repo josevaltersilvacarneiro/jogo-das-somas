@@ -52,7 +52,7 @@ Run
 | Python | https://www.python.org |
 | Vim | https://www.vim.org |
 
-## Autor | [<img src='' width=115><br><sub></sub>] (https://github.com/josevaltersilvacarneiro) || :---: |
+## Autor | [<img src='https://imgur.com/VCbOc1S' width=115><br><sub></sub>] (https://github.com/josevaltersilvacarneiro) || :---: |
 
 ## License
 
