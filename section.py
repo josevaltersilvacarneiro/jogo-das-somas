@@ -7,7 +7,7 @@ class Section(tuple):
         Section is a tuple of unrepeated random elements.
     """
    
-    def __new__(self, length : int) -> bool:
+    def __new__(self, length : int):
 
         return super().__new__(
                     Section,
