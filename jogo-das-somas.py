@@ -51,7 +51,7 @@ def main() -> int:
 
     fox()
 
-    return True
+    return 0
 
 if __name__ == '__main__':
     exit(main())
