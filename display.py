@@ -6,25 +6,25 @@ class Display:
 
     def __init__(self, length : int) -> None:
         
-        self.__index : int = -1
+        self._index : int = -1
 
-        self.__LENGTH : int = length
+        self._LENGTH : int = length
         
-        self.__display = [
-                    [ False for j in range(self.__LENGTH) ] for i in range(self.__LENGTH)
+        self._display = [
+                    [ False for j in range(self._LENGTH) ] for i in range(self._LENGTH)
                 ]
 
     def __len__(self) -> int:
 
-        return self.__display.__len__()
+        return self._display.__len__()
 
     def __getitem__(self, index) -> int:
         
-        return self.__display.__getitem__(index)
+        return self._display.__getitem__(index)
 
     def __setitem__(self, index, value) -> None:
 
-        self.__display.__setitem__(index, value)
+        self._display._setitem__(index, value)
 
     def __iter__(self):
         
@@ -32,16 +32,16 @@ class Display:
 
     def __next__(self) -> int:
 
-        if self.__index == self.__len__() - 1:
-            self.__index = -1
+        if self._index == self.__len__() - 1:
+            self._index = -1
 
             return StopIteration
 
-        self.__index += 1
+        self._index += 1
 
-        return self.__getitem__(self.__index)
+        return self.__getitem__(self._index)
 
-    def __is_free(self, typee : int = 2, index = None) -> bool:
+    def _is_free(self, typee : int = 2, index = None) -> bool:
 
         #   typee [
         #           0 => row
@@ -51,15 +51,19 @@ class Display:
         #
         #   index of the row or column
 
-        count = self.__LENGTH
+        count = self._LENGTH
 
         while ( count := count - 1 ) >= 0:
 
-            if typee == 0: value = self.__getitem__(index).__getitem__(count) # equal to self.__getitem__(index)[count]
-            elif typee == 1: value = self.__getitem__(count).__getitem__(index)
-            else: value = self.__getitem__(count).__getitem__(count)
+            if typee == 0:
+                value = self.__getitem__(index).__getitem__(count)
+            elif typee == 1:
+                value = self.__getitem__(count).__getitem__(index)
+            else:
+                value = self.__getitem__(count).__getitem__(count)
 
-            if value is False: return True
+            if value is False:
+                return True
 
         return False
 
@@ -70,18 +74,18 @@ class Display:
         # 0 => False ### The row isn't free
         # 1 => True  ### Yes, the row is free
 
-        return self.__is_free(0, row)
+        return self._is_free(0, row)
 
     def column_is_free(self, column : int) -> bool:
 
         # 0 => False ### The column isn't free
         # 1 => True  ### Yes, the column is free
 
-        return self.__is_free(1, column)
+        return self._is_free(1, column)
 
     def diagonal_is_free(self) -> bool:
 
         # 0 => False ### The diagonal isn't free
         # 1 => True  ### Yes, the diagonal is free
 
-        return self.__is_free()
+        return self._is_free()
