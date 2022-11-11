@@ -43,7 +43,7 @@ class Game:
 
         # As long as the variable digit isn't a digit, run
 
-        while ( not ( digit := input(message) ).isdigit() ): pass
+        while ( not ( digit := input(message) ).isdecimal() ): pass
 
         return int(digit)
 
