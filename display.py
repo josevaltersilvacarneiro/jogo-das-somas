@@ -25,22 +25,7 @@ class Display:
     def __setitem__(self, index, value) -> None:
 
         self._display._setitem__(index, value)
-
-    def __iter__(self):
-        
-        return self
-
-    def __next__(self) -> int:
-
-        if self._index == self.__len__() - 1:
-            self._index = -1
-
-            return StopIteration
-
-        self._index += 1
-
-        return self.__getitem__(self._index)
-
+    
     def _is_free(self, typee : int = 2, index = None) -> bool:
 
         #   typee [
