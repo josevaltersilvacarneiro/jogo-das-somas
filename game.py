@@ -106,10 +106,6 @@ class Game:
 
         return self.__BOARD[section].index(number) # Exception tratment is desnecessary
 
-    # -- section
-
-    # + game
-
     def __game_over(self) -> int:
 
         # 0 => False ### There wasn't a win
@@ -218,26 +214,27 @@ class Game:
             print()
 
         #########################################
-        # Reversed sort algorithm
+        # Insertion Reverse Sort Algorithm
 
         players = self.__players[:]
-        sort_players = list()
+        players_length = len(players);
 
-        while players: # If players isn't empty, run
+        for i in range(players_length):
             
-            highest_scoring_player = players[0]
-            for player in players[1:]:
+            key = players[i];
+            j = i - 1;
 
-                if player.score > highest_scoring_player.score:
-                    highest_scoring_player = player
+            while j >= 0 and players[j + 1].score > players[j].score:
 
-            sort_players.append(highest_scoring_player)
-            players.remove(highest_scoring_player)
+                players[j + 1] = players[j];
+                j -= 1;
+
+            players[j + 1] = key;
 
         # End of reversed sort algorithm
         #########################################
         
-        for player in sort_players:
+        for player in players:
             print('{}\t\t{:05}'.format(player.name, player.score))
 
         print('==' * 30)
