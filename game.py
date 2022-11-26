@@ -213,7 +213,7 @@ class Game:
         else:
             print()
 
-        #########################################
+        ###########################################
         # Insertion Reverse Sort Algorithm
 
         players = self.__players[:]
@@ -231,8 +231,8 @@ class Game:
 
             players[j + 1] = key;
 
-        # End of reversed sort algorithm
-        #########################################
+        # End of Insertion Reverse Sort Algorithm
+        ###########################################
         
         for player in players:
             print('{}\t\t{:05}'.format(player.name, player.score))
