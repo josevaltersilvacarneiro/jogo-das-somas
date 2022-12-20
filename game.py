@@ -213,28 +213,9 @@ class Game:
         else:
             print()
 
-        ###########################################
-        # Insertion Reverse Sort Algorithm
+        # It shows the players in an orderly manner
 
-        players = self.__players[:]
-        players_length = len(players);
-
-        for i in range(players_length):
-            
-            key = players[i];
-            j = i - 1;
-
-            while j >= 0 and players[j + 1].score > players[j].score:
-
-                players[j + 1] = players[j];
-                j -= 1;
-
-            players[j + 1] = key;
-
-        # End of Insertion Reverse Sort Algorithm
-        ###########################################
-        
-        for player in players:
+        for player in sorted(self.__players, reverse=True):
             print('{}\t\t{:05}'.format(player.name, player.score))
 
         print('==' * 30)

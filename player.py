@@ -9,6 +9,9 @@ class Player:
         self._NAME : str = name
         self._score : int = 0
 
+    def __lt__(self, player) -> bool:
+        return self._score < player._score;
+
     # public
 
     @property
