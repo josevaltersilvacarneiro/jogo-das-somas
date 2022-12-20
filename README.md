@@ -1,4 +1,4 @@
-<h1 align="center"> Jogo das Somas </h1>
+<h1 align="center"> Sudoku </h1>
 
 > Status: Beta
 
