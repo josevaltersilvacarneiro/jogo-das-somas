@@ -16,15 +16,12 @@ class Player:
 
     @property
     def name(self) -> str:
-
         return self._NAME
 
     @property
     def score(self) -> int:
-
         return self._score
 
     @score.setter
     def score(self, points : int) -> None:
-
         self._score += points
