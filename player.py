@@ -15,8 +15,8 @@ class Player:
     def __eq__(self, player : Player) -> bool:
         return self._score == player.score
 
-    def __lt__(self, player) -> bool:
-        return self._score < player._score;
+    def __lt__(self, player : Player) -> bool:
+        return self._score < player.score;
 
     # public
 
