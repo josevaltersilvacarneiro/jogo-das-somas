@@ -1,3 +1,6 @@
+from functools import total_ordering
+
+@total_ordering
 class Player:
 
     """
@@ -8,6 +11,9 @@ class Player:
 
         self._NAME : str = name
         self._score : int = 0
+
+    def __eq__(self, player : Player) -> bool:
+        return self._score == player.score
 
     def __lt__(self, player) -> bool:
         return self._score < player._score;
