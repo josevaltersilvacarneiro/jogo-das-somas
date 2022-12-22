@@ -105,14 +105,11 @@ class Game:
 
         return False # If section has elements, so there is at least one free element
 
-    def _number_is_free_on_section(self, number_index : int, section : int) -> bool:
+    def _number_is_free(self, section : int, number_index : int) -> bool:
         
-        # 0 => False ### The number isn't free
-        # 1 => True  ### Yes, the number is free
+        row, column = self._convert(section, number_index)
 
-        row, column = self.__convert(section, number_index)
-
-        return self.__display[row][column] is False
+        return self._display[row][column] is False
 
     def _number_index_on_section(self, number : int, section : int) -> bool:
         
