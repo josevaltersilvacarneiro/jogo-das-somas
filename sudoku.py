@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 
-import game
+from game import Game
 
 def fox() -> None:
 
@@ -36,13 +36,13 @@ def fox() -> None:
 
 def main() -> int:
 
-    gamee = game.Game()
+    game = Game()
 
-    while not gamee.quit:
+    while not game.quit:
 
-        gamee.show()
+        game.show()
 
-        gamee.play()
+        game.play()
 
     else:
         gamee.show()
