@@ -96,16 +96,12 @@ class Game:
 
     def _section_is_free(self, section : int) -> bool:
         
-        # 0 => False ### The section is full
-        # 1 => True  ### The section isn't full
+        for number_index in range(self._LENGTH):
+            
+            row, column = self._convert(section, number_index);
 
-        count = self.__LENGTH # It's necessary because going to decremented
-
-        while ( count := count - 1 ) >= 0:
-
-            row, column = self.__convert(section, count)
-
-            if self.__display[row][column] is False: return True
+            if self._display[row][column] is False:
+                return True;
 
         return False # If section has elements, so there is at least one free element
 
