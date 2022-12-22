@@ -113,9 +113,7 @@ class Game:
 
     def _number_index(self, section: int, number : int) -> int:
         
-        # This method returns the index's number on section number
-
-        return self._BOARD[section].index(number) # Exception tratment is desnecessary
+        return self._BOARD[section].index(number)
 
     def __get_dimension(self) -> int:
 
