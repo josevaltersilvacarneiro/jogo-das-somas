@@ -18,7 +18,7 @@ class Game:
         self.__players : list = list()
         self.__AMOUNT_PLAYERS : int = self.__get_players()
 
-        self.__quit : bool = False
+        self._quit : bool = False
         self.__next_player : int = 0
         
         self.__SUM_ROWS : list = list()
@@ -35,7 +35,32 @@ class Game:
     @property
     def quit(self) -> bool:
 
-        return self.__quit
+        # 0 => False ### There wasn't a win
+        # 1 => True  ### There was a win
+
+        # To win, the player must score more than the penultimate score plus the free points
+
+        free_points = 0 # Sum of the points that nobody won; that is, points of the free positions in board
+
+        for i in range(self.__LENGTH):
+
+            if self.__display.row_is_free(i):
+                free_points += self.__SUM_ROWS[i]
+
+            if self.__display.column_is_free(i):
+                free_points += self.__SUM_COLUMNS[i]
+
+        if self.__display.diagonal_is_free():
+            free_points += self.__SUM_DIAGONAL
+
+        # It gets the score of each player and storages in players_score
+        players_score = [ player.score for player in self.__players ]
+
+        max_score = max(players_score); players_score.remove(max_score); penultimate_score = max(players_score)
+
+        sum_of_scores = penultimate_score + free_points
+
+        return sum_of_scores < max_score or free_points == 0
 
     @property
     def next_player(self) -> int:
@@ -124,35 +149,6 @@ class Game:
         # This method returns the index's number on section number
 
         return self.__BOARD[section].index(number) # Exception tratment is desnecessary
-
-    def __game_over(self) -> int:
-
-        # 0 => False ### There wasn't a win
-        # 1 => True  ### There was a win
-
-        # To win, the player must score more than the penultimate score plus the free points
-
-        free_points = 0 # Sum of the points that nobody won; that is, points of the free positions in board
-
-        for i in range(self.__LENGTH):
-
-            if self.__display.row_is_free(i):
-                free_points += self.__SUM_ROWS[i]
-
-            if self.__display.column_is_free(i):
-                free_points += self.__SUM_COLUMNS[i]
-
-        if self.__display.diagonal_is_free():
-            free_points += self.__SUM_DIAGONAL
-
-        # It gets the score of each player and storages in players_score
-        players_score = [ player.score for player in self.__players ]
-
-        max_score = max(players_score); players_score.remove(max_score); penultimate_score = max(players_score)
-
-        sum_of_scores = penultimate_score + free_points
-
-        return sum_of_scores < max_score or free_points == 0
 
     def __get_dimension(self) -> int:
 
@@ -276,8 +272,3 @@ class Game:
 
         # End of calculus for getting score
         #########################################
-
-        # The position on attribute called display always was chosen and added at the score of the player
-
-        # Did someone win or game over ?
-        self.__quit = self.__game_over()
