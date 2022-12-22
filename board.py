@@ -19,8 +19,10 @@ class Board:
         self._board = [ Section(length) for i in range(length) ]
 
     def __getitem__(self, index : int) -> Section:
-
         return self._board.__getitem__(index)
+
+#-----------------------------------------------------------------#
+#---------------------------- Tests ------------------------------#
 
 if __name__ == '__main__':
 
