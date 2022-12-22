@@ -281,6 +281,3 @@ class Game:
 
         # Did someone win or game over ?
         self.__quit = self.__game_over()
-
-        # It defines the next player to play
-        self.__next_player += 1; self.__next_player %= self.__AMOUNT_PLAYERS
