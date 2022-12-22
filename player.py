@@ -31,10 +31,10 @@ class Player:
         self._score : int = 0;
 
     def __eq__(self, player : object) -> bool:
-        return self._score == player.score;
+        return self.score == player.score;
 
     def __lt__(self, player : object) -> bool:
-        return self._score < player.score;
+        return self.score < player.score;
 
     # public
 
