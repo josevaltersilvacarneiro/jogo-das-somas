@@ -27,40 +27,14 @@ class Game:
         self.__diagonal : bool = True
 
 
-        self.__display : Display = Display(self.__LENGTH)
+        self._display : Display = Display()
         self.__BOARD : Board = Board(self.__LENGTH)
 
         self.__sum_rows_columns_diagonal()
 
     @property
     def quit(self) -> bool:
-
-        # 0 => False ### There wasn't a win
-        # 1 => True  ### There was a win
-
-        # To win, the player must score more than the penultimate score plus the free points
-
-        free_points = 0 # Sum of the points that nobody won; that is, points of the free positions in board
-
-        for i in range(self.__LENGTH):
-
-            if self.__display.row_is_free(i):
-                free_points += self.__SUM_ROWS[i]
-
-            if self.__display.column_is_free(i):
-                free_points += self.__SUM_COLUMNS[i]
-
-        if self.__display.diagonal_is_free():
-            free_points += self.__SUM_DIAGONAL
-
-        # It gets the score of each player and storages in players_score
-        players_score = [ player.score for player in self.__players ]
-
-        max_score = max(players_score); players_score.remove(max_score); penultimate_score = max(players_score)
-
-        sum_of_scores = penultimate_score + free_points
-
-        return sum_of_scores < max_score or free_points == 0
+        return self._display.number_of_free_cells == 0 or self._display.quit;
 
     @property
     def next_player(self) -> int:
