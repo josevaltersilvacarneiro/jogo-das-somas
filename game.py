@@ -111,11 +111,11 @@ class Game:
 
         return self._display[row][column] is False
 
-    def _number_index_on_section(self, number : int, section : int) -> bool:
+    def _number_index(self, section: int, number : int) -> int:
         
         # This method returns the index's number on section number
 
-        return self.__BOARD[section].index(number) # Exception tratment is desnecessary
+        return self._BOARD[section].index(number) # Exception tratment is desnecessary
 
     def __get_dimension(self) -> int:
 
