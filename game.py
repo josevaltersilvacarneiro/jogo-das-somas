@@ -37,6 +37,25 @@ class Game:
 
         return self.__quit
 
+    @property
+    def next_player(self) -> int:
+        """To find out the next player to play, it
+        increments the _next_player attribute by
+        1. After that, it calculates the module in
+        relation the number of players. See below:
+
+        print(self._players); # ['Sarah', 'John']
+        print(self.next_player); # 1
+        print(self.next_player); # 0
+        print(self.next_player); # 1
+
+        """
+        
+        self._next_player += 1;
+        self._next_player %= self._number_of_players;
+
+        return self._next_player;
+
     # private
 
     def get_digit(self, message : str) -> int:
