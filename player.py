@@ -16,7 +16,7 @@ class Player:
     new_player_score = new_player.score;
 
     The player's score can be changed. However,
-    the  value will be incremented, i.e. it's
+    the value will be incremented, i.e. it's
     not possible to decrease it. See below:
 
     print(new_player.score); # 5
@@ -27,11 +27,11 @@ class Player:
 
     def __init__(self, name : str):
 
-        self._NAME : str = name
-        self._score : int = 0
+        self._NAME  : str = name;
+        self._score : int = 0;
 
     def __eq__(self, player : object) -> bool:
-        return self._score == player.score
+        return self._score == player.score;
 
     def __lt__(self, player : object) -> bool:
         return self._score < player.score;
@@ -40,12 +40,12 @@ class Player:
 
     @property
     def name(self) -> str:
-        return self._NAME
+        return self._NAME;
 
     @property
     def score(self) -> int:
-        return self._score
+        return self._score;
 
     @score.setter
     def score(self, points : int) -> None:
-        self._score += points
+        self._score += points;
