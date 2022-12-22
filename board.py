@@ -1,9 +1,17 @@
 from section import Section
 
 class Board:
+    """This class creates the board of the game:
+    a list of sections. After being instantiated
+    the values cannot be changed; but the main
+    program can access them. For example:
 
-    """
-        This class creates the board of the game: a array of sections
+    new_board = Board(2);
+    section_one = new_board[1];
+
+    To print the board on screen:
+    print(new_board);
+    
     """
 
     def __init__(self, length : int) -> None:
