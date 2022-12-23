@@ -68,6 +68,15 @@ class Board:
         self._diagonal_sum = value << 1;
 
     def _find_the_sums(self):
+        """This method stores the sum of each row and column
+        in rows_sum and columns_sum attributes respectively.
+        Furthermore, it finds the sum of the main diagonal.
+        To do this, it first needs to convert the row and
+        column pair to section and house to get the corres-
+        ponding value. This is done with the convert func-
+        tion.
+
+        """
 
         for row in range(self._LENGTH):
             for column in range(self._LENGTH):
