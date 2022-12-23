@@ -48,4 +48,4 @@ class Player:
 
     @score.setter
     def score(self, points : int) -> None:
-        self._score += points;
+        self._score = points;
