@@ -72,14 +72,14 @@ class Board:
         for row in range(self._LENGTH):
             for column in range(self._LENGTH):
 
-                section, house = convert(row, column, self._DIMENSION);
-                number         = self._BOARD[section][house].value;
+                section, house            = convert(row, column, self._DIMENSION);
+                number                    = self._BOARD[section][house].value;
 
                 self.columns_sum[column] += number;
                 self.rows_sum[row]       += number;
 
                 if row == column:
-                    self.diagonal_sum += number;
+                    self.diagonal_sum    += number;
 
     def is_row_free(self, row : int) -> bool:
         
