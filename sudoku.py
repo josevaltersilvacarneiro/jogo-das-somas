@@ -9,7 +9,7 @@ def main() -> int:
     while not game.quit:
 
         game.show();
-        game.play();
+        game.play(game.next_player);
 
     else:
         game.show();
