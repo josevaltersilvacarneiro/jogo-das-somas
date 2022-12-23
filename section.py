@@ -1,47 +1,39 @@
 from random import sample
 
-class Section(tuple):
+from house import House
+
+class Section:
 
     """
         This class creates a new type of data. The Section
         type is a tuple of unrepeated random elements.
     """
    
-    def __new__(self, length : int):
+    def __init__(self, length : int):
 
-        return super().__new__(
-                    Section,
-                    sample(range(1, length + 1), length)
-                )
+        self._section : list = [
+                    House(value) for value in sample(range(1, length + 1), length)
+                ];
 
-    # Private
+    def __getitem__(self, index) -> int:
+        return self._section[index];
 
-    def _not_contain(self, number : int) -> bool:
+    @property
+    def free(self) -> bool:
 
-        return number not in self.__iter__()
+        for house in self._section:
+            if house.status is False:
+                return True;
 
-    # Public
+        return False;
 
-    def show(self, index : int) -> int:
+    def index(self, value : int) -> int:
 
-        if -self.__len__() <= index < self.__len__():
-            return self.__getitem__(index)
-        
-        return None
+        for i, house in enumerate(self._section):
+            if house.value == value:
+                return i;
 
-    def index(self, number : int, return_value = None) -> int:
-
-        # Call this method like this: 
-        # object.index(
-        #               the number that you want to know the index, 
-        #               [ the optional return value if number doens't in object [
-        #           )
-
-        if self._not_contain(number):
-            return return_value
-        
-        return super().index(number)
-
+        return -1;
 
 if __name__ == '__main__':
 
@@ -51,14 +43,14 @@ if __name__ == '__main__':
 
     print(dir(Section))
 
-    for i in range(101):
+    for i in range(1, 101):
 
         # Initializing the Section class
 
         init = Section(i)
 
         # Number of input, object repr, methods
-        print(i, init, init.index(None), init.show(0)) # The other methods are handled for the tuple type
+        print(i, init, init[0].value ) # The other methods are handled for the tuple type
 
         # Errors
 
