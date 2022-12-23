@@ -17,12 +17,9 @@ class Board:
 
     def __init__(self, length : int) -> None:
 
-        self._DIMENSION : int  = int(length ** 0.5);
-        self._LENGTH    : int  = pow(self._DIMENSION, 2);
-        self._BOARD     : list = [
-                    Section(self._LENGTH) for i in range(self._LENGTH)
-                ];
-
+        self._DIMENSION    : int  = int(length ** 0.5);
+        self._LENGTH       : int  = pow(self._DIMENSION, 2);
+        self._BOARD        : list = [Section(self._LENGTH) for i in range(self._LENGTH)];
         self._rows_sum     : list = [0 for i in range(self._LENGTH)];
         self._columns_sum  : list = [0 for i in range(self._LENGTH)];
         self._diagonal_sum : int  = 0;
