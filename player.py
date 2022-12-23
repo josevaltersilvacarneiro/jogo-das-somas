@@ -20,7 +20,7 @@ class Player:
     not possible to decrease it. See below:
 
     print(new_player.score); # 5
-    new_player.score = 5;
+    new_player.score += 5;
     print(new_player.score); # 10
     
     """
