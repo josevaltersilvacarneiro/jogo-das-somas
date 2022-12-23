@@ -62,7 +62,7 @@ class Board:
 
     @diagonal_sum.setter
     def diagonal_sum(self, value) -> None:
-        self._diagonal_sum = value << 1;
+        self._diagonal_sum = value;
 
     def _find_the_sums(self):
         """This method stores the sum of each row and column
@@ -85,7 +85,7 @@ class Board:
                 self.rows_sum[row]       += number;
 
                 if row == column:
-                    self.diagonal_sum    += number;
+                    self.diagonal_sum    += number << 1;
 
     def is_row_free(self, row : int) -> bool:
         
