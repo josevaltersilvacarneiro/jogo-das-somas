@@ -36,22 +36,21 @@ def fox() -> None:
 
 def main() -> int:
 
-    game = Game()
+    game = Game();
 
     while not game.quit:
 
-        game.show()
-
-        game.play()
+        game.show();
+        game.play();
 
     else:
-        gamee.show()
+        game.show();
 
     # Cute cute
 
     fox()
 
-    return 0
+    return 0;
 
 if __name__ == '__main__':
-    exit(main())
+    exit(main());
